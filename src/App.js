@@ -3,6 +3,7 @@ import './App.css';
 import Dashboard from './component/Dashboard/Dashboard';
 import Wizard from './component/Wizard/Wizard';
 import Header from './component/Header/Header';
+import {Route, Switch, Link} from 'react-router-dom';
 
 
 class App extends Component {
@@ -10,8 +11,13 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-        <Wizard/>
-        <Dashboard/>
+          <Link to="/">Dashboard</Link>
+          <Link to="/wizard">Wizard</Link>
+        <Switch>
+           <Route exact path="/" component={Dashboard}/>
+           <Route path="/wizard" component={Wizard}/>
+        </Switch>
+         
       </div>
     );
   }
